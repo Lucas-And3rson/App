@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+     Aba 4
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button  color="success"><ion-icon name="add-outline"></ion-icon></ion-fab-button>
+    <ion-fab-list side="start">
+    <ion-fab-button><ion-icon name="pencil-outline"></ion-icon></ion-fab-button>
+    <ion-fab-button><ion-icon name="shield-checkmark-outline"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="button">
+      <ion-fab-button><ion-icon name="call-outline"></ion-icon></ion-fab-button>
+      <ion-fab-button><ion-icon name="logo-whatsapp"></ion-icon></ion-fab-button>
+      </ion-fab-list>
+  </ion-fab>
+  <ion-item-divider>Exercício 1</ion-item-divider>
+  <ion-item>
+    <ion-input [clearInput]="true" label="Nome:" type="text" placeholder="Fulano"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input [clearInput]="true" label="Nota:" type="number" placeholder="5" min="0" max="10"></ion-input>
+  </ion-item>
+  <ion-button expand="full" color="success">SALVAR</ion-button>
+<ion-button expand="full" color="danger">CANCELAR</ion-button>
+<ion-item-divider>Exercício 2</ion-item-divider>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button  color="success"><ion-icon name="camera-outline"></ion-icon></ion-fab-button>
+  <ion-fab-list side="top">
+  <ion-fab-button><ion-icon name="image-outline"></ion-icon></ion-fab-button>
+  <ion-fab-button><ion-icon name="caret-forward-circle-outline"></ion-icon></ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
+
+
+</ion-content>

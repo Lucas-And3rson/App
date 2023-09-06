@@ -27,7 +27,10 @@
   <ion-item>
     <ion-range label="Horas trabalhadas" pin="true" min=1 max=10></ion-range>
    </ion-item>
-  <ion-item-divider class="divisa">Endereço</ion-item-divider>
+  <ion-toolbar>
+    <ion-title slot="start"> <ion-icon name="home-outline"></ion-icon> </ion-title>
+    <ion-title slot="start">Endereço</ion-title>
+  </ion-toolbar>
   <ion-item>
     <ion-input label="Cidade" label-placement="floating"  fill="solid" [clearInput]="true" id="nome" type="text"></ion-input>
   </ion-item>
