@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: Tab2Page,
+  },
+  {
+    path: 'nova',
+    loadChildren: () => import('./nova/nova.module').then( m => m.NovaPageModule)
   }
 ];
 
