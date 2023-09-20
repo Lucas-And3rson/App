@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Contatos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Contatos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-toolbar>
+    <ion-segment value="todos">
+      <ion-segment-button value="all" routerLink="./todos">
+        Todos os Contatos
+      </ion-segment-button>
+      <ion-segment-button value="Recentes">
+        Recentes
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-content>
