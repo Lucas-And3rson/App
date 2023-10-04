@@ -36,4 +36,29 @@
       <ion-label>Contatos</ion-label>
     </ion-item>
   </ion-card>
+  <ion-card>
+    <ion-item (click)="abrir()">
+      <ion-icon slot="start" name="cash-outline"></ion-icon>
+      <ion-label>Fluxo de caixa</ion-label>
+    </ion-item>
+    <ion-card [ngStyle]="{'display': display}">
+      <ion-item>
+        <ion-label> Entrada: R$ {{ Entrada }},00</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>  Saída: R$ {{ Saida }},00</ion-label>
+      </ion-item>
+      <ion-item color="{{Cor}}">
+        <ion-label>Total em caixa R$ {{ Total }},00</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="add()">ADICIONAR R$ 1,00</ion-button>
+        <ion-button color="danger" (click)="ret()">RETIRAR R$ 1,00</ion-button>
+        <ion-button color="success" (click)="zerar()">ZERAR</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button slot="end" color="danger" (click)="fechar()">FECHAR</ion-button>
+      </ion-item>
+    </ion-card>
+  </ion-card>
 </ion-content>
