@@ -7,7 +7,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!--
+  <!-- <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+    <ion-fab-button  color="success"><ion-icon name="add-outline"></ion-icon></ion-fab-button>
+    <ion-fab-list side="start">
+    <ion-fab-button><ion-icon name="pencil-outline"></ion-icon></ion-fab-button>
+    <ion-fab-button><ion-icon name="shield-checkmark-outline"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="button">
+      <ion-fab-button><ion-icon name="call-outline"></ion-icon></ion-fab-button>
+      <ion-fab-button><ion-icon name="logo-whatsapp"></ion-icon></ion-fab-button>
+      </ion-fab-list>
+  </ion-fab>
   <ion-item-divider>Exercício 1</ion-item-divider>
   <ion-item>
     <ion-input [clearInput]="true" label="Nome:" type="text" placeholder="Fulano"></ion-input>
@@ -17,7 +27,6 @@
   </ion-item>
   <ion-button expand="full" color="success">SALVAR</ion-button>
 <ion-button expand="full" color="danger">CANCELAR</ion-button>
--->
 <!-- Exercício 2 -->
 <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
   <ion-fab-button  color="success"><ion-icon name="camera-outline"></ion-icon></ion-fab-button>
@@ -25,19 +34,20 @@
   <ion-fab-button><ion-icon name="image-outline"></ion-icon></ion-fab-button>
   <ion-fab-button><ion-icon name="caret-forward-circle-outline"></ion-icon></ion-fab-button>
   </ion-fab-list>
-</ion-fab> -->
+</ion-fab>
+<ion-item-divider>Exercício 13/09</ion-item-divider>
+  <ion-item>
+    <label for="">Matriculado</label>
+    <ion-badge slot="end" color="danger">NÃO</ion-badge>
+  </ion-item> -->
   <ion-card>
     <ion-item routerLink="./configuracoes">
       <ion-icon slot="start" name="settings-outline"></ion-icon>
       <ion-label>Configurações</ion-label>
     </ion-item>
-    <ion-item routerLink="./contatos">
-      <ion-icon slot="start" name="person-outline"></ion-icon>
-      <ion-label>Contatos</ion-label>
-    </ion-item>
   </ion-card>
   <ion-card>
-    <ion-item (click)="abrir()">
+    <ion-item routerLink="tab4" (click)="abrir()">
       <ion-icon slot="start" name="cash-outline"></ion-icon>
       <ion-label>Fluxo de caixa</ion-label>
     </ion-item>
@@ -52,12 +62,44 @@
         <ion-label>Total em caixa R$ {{ Total }},00</ion-label>
       </ion-item>
       <ion-item>
-        <ion-button (click)="add()">ADICIONAR R$ 1,00</ion-button>
-        <ion-button color="danger" (click)="ret()">RETIRAR R$ 1,00</ion-button>
+        <ion-button (click)="add()">ADICIONAR</ion-button>
+        <ion-button color="danger" (click)="ret()">RETIRAR</ion-button>
         <ion-button color="success" (click)="zerar()">ZERAR</ion-button>
       </ion-item>
       <ion-item>
         <ion-button slot="end" color="danger" (click)="fechar()">FECHAR</ion-button>
+      </ion-item>
+    </ion-card>
+  </ion-card>
+  <ion-card>
+    <ion-item routerLink="tab4" (click)="abrir2()">
+      <ion-icon slot="start" name="calculator-outline"></ion-icon>
+      <ion-label>Calculadora</ion-label>
+    </ion-item>
+    <ion-card [ngStyle]="{'display': displayCalc}">
+      <ion-item>
+        <ion-input type="number" label="Nota 1" [(ngModel)]="n1" min="0" max="10"> </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" label="Nota 2" [(ngModel)]="n2" min="0" max="10"> </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" label="Nota 3" [(ngModel)]="n3" min="0" max="10"> </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number"label="Nota 4" [(ngModel)]="n4" min="0" max="10"> </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Media: {{media}}</ion-label>
+      </ion-item>
+      <ion-item color="{{situacaoCor}}">
+        <ion-label>Situação: {{situacao}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="calcular()">Calcular Média</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button slot="end" color="danger" (click)="fechar2()">FECHAR</ion-button>
       </ion-item>
     </ion-card>
   </ion-card>

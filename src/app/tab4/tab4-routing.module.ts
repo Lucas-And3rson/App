@@ -10,11 +10,7 @@ const routes: Routes = [
   {
     path: 'configuracoes',
     loadChildren: () => import('./configuracoes/configuracoes.module').then( m => m.ConfiguracoesPageModule)
-  },  {
-    path: 'contatos',
-    loadChildren: () => import('./contatos/contatos.module').then( m => m.ContatosPageModule)
   }
-
 ];
 
 @NgModule({
