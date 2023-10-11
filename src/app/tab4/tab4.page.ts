@@ -61,10 +61,18 @@ export class Tab4Page {
 
     async calcular(){
       if(this.n1 === undefined || this.n2 === undefined || this.n3 === undefined || this.n4 === undefined ||
-        this.n1 === null || this.n2 === null || this.n3 === null || this.n4 === null){
+        this.n1 === null || this.n2 === null || this.n3 === null || this.n4 === null ){
         const alert = await this.alertController.create({
           header: 'Muito Leigo',
           message: 'Preencha todos os campos',
+          buttons: ['OK'],
+        });
+        await alert.present()
+      }
+      if( this.n1 < 0 || this.n1 > 10 || this.n2 < 0 || this.n2 > 10 || this.n3 < 0 || this.n3 > 10 || this.n4 < 0 || this.n4 > 10){
+        const alert = await this.alertController.create({
+          header: 'Rapaz',
+          message: 'Coloque uma nota entre 0 e 10',
           buttons: ['OK'],
         });
         await alert.present()
