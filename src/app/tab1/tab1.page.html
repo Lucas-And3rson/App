@@ -7,94 +7,36 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- <ion-item>
-    <ion-input label="Pesquisa" label-placement="floating"  fill="solid" [clearInput]="true" id="nome" placeholder="Ex: Armazenamento"></ion-input>
+  <ion-chip (click)="escolha('rock')" color="dark">
+    <ion-label>Rock</ion-label>
+  </ion-chip>
+  <ion-chip (click)="escolha('forro')" color="danger">
+    <ion-label>Forró</ion-label>
+  </ion-chip>
+  <ion-chip (click)="escolha('samba')" color="warning">
+    <ion-label>Samba</ion-label>
+  </ion-chip>
+  <ion-item *ngIf="esc === ''">
+    <ion-label>Escolha uma opção</ion-label>
   </ion-item>
-
-  <ion-item>
-    <ion-icon slot="start" name="musical-notes-outline"></ion-icon>
-    <ion-label>Sons</ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-icon slot="start" name="image-outline"></ion-icon>
-    <ion-label>Imagens</ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-icon slot="start" name="folder-open-outline"></ion-icon>
-    <ion-label>Armazenamento</ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-icon slot="start" name="extension-puzzle-outline"></ion-icon>
-    <ion-label>Aplicativos</ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-icon slot="start" name="person-circle-outline"></ion-icon> -->
-    <!-- <ion-label class="cor">Contas</ion-label> -->
-    <!-- <ion-label>Contas</ion-label>
-  </ion-item>
-  <ion-item color="danger">
-    <ion-icon slot="start" name="build-outline"></ion-icon>
-    <ion-label>Restaurar Configuração de Fábrica</ion-label>
-  </ion-item> -->
-  <!-- <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container> -->
-
-  <!-- <ion-chip color="success">
-    <ion-label>Escola</ion-label>
-    <ion-icon name="school-outline"></ion-icon>
-    </ion-chip>
-    <ion-chip color="warning">
-      <ion-label>Academia</ion-label>
-      <ion-icon name="barbell-outline"></ion-icon>
-      </ion-chip>
-      <ion-chip color="primary">
-        <ion-label>Comércio</ion-label>
-        <ion-icon name="storefront-outline"></ion-icon>
-        </ion-chip> -->
-        <ion-item-divider >A</ion-item-divider>
-        <ion-item>
-          <ion-avatar slot="start">
-            <img src="../assets/img/R.png" alt="">
-          </ion-avatar>
-          <ion-label for="">Adam</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-avatar slot="start">
-            <img src="../assets/img/R.png" alt="">
-          </ion-avatar>
-          <ion-label for="">Alberto</ion-label>
-        </ion-item>
-
-        <ion-item-divider >B</ion-item-divider>
-        <ion-item>
-          <ion-avatar slot="start">
-            <img src="../assets/img/Bart.png" alt="">
-          </ion-avatar>
-          <ion-label for="">Bart</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-avatar slot="start">
-            <img src="../assets/img/R.png" alt="">
-          </ion-avatar>
-          <ion-label for="">Bruno</ion-label>
-        </ion-item>
-
-        <ion-item-divider >H</ion-item-divider>
-        <ion-item>
-          <ion-avatar slot="start">
-            <img src="../assets/img/Homer.jpg" alt="">
-          </ion-avatar>
-          <ion-label for="">Homer</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-avatar slot="start">
-            <img src="../assets/img/R.png" alt="">
-          </ion-avatar>
-          <ion-label for="">Hugo</ion-label>
-        </ion-item>
+  <ion-card *ngIf="esc === 'samba'">
+    <img src="https://th.bing.com/th/id/R.35e65dd9304a4380f36abd51f8575e90?rik=c3sykqAweqV63A&pid=ImgRaw&r=0" alt="imgSamba">
+    <ion-card-title>Samba</ion-card-title>
+    <ion-card-subtitle>História</ion-card-subtitle>
+    <ion-card-content>O samba é uma dança e um gênero musical brasileiro considerado um dos elementos mais representativos da cultura popular doBrasil.
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="esc === 'forro'">
+    <img src="https://th.bing.com/th/id/R.ddac50525499686183a622c30224e9a4?rik=YRM0jZqz0QxLZw&pid=ImgRaw&r=0" alt="imgForro">
+    <ion-card-title>Forró</ion-card-title>
+    <ion-card-subtitle>História</ion-card-subtitle>
+    <ion-card-content>O forró é uma expressão artística genuinamente nordestina. Por ser uma forma de manifestação cultural ampla, o termo forró   tediversos significados e pode servir tanto para designar o ritmo musical, o estilo de dança e mesmo a festividade em que acontece.
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="esc === 'rock'">
+    <img src="https://th.bing.com/th/id/R.7319d27c583bff5da859663b8c6dcb5e?rik=wbcjJvAzjhxQpA&pid=ImgRaw&r=0" alt="imgRock">
+    <ion-card-title>Rock</ion-card-title>
+    <ion-card-subtitle>História</ion-card-subtitle>
+    <ion-card-content>O Rock é uma vertente musical surgida do termo Rock and Roll. Originou-se nos Estados Unidos na segunda metade do século XX,alcançando seu auge nos anos 70 e 80.</ion-card-content>
+  </ion-card>
 </ion-content>
