@@ -39,4 +39,23 @@
     <ion-card-subtitle>História</ion-card-subtitle>
     <ion-card-content>O Rock é uma vertente musical surgida do termo Rock and Roll. Originou-se nos Estados Unidos na segunda metade do século XX,alcançando seu auge nos anos 70 e 80.</ion-card-content>
   </ion-card>
+  <ion-item *ngIf="nome == ''">
+    <ion-label>Não há alunos cadastrados!</ion-label>
+  </ion-item>
+  <ion-card>
+    <ion-item *ngFor="let aluno of alunos, let i = index">
+
+      <ion-label>{{aluno.getNome()}}</ion-label>
+      <ion-badge *ngIf="aluno.getNota() >= 6">Nota: {{aluno.getNota()}}</ion-badge>
+      <ion-badge color="danger" *ngIf="aluno.getNota() < 6">Nota: {{aluno.getNota()}}</ion-badge>
+      <ion-icon (click)="apagar(i)" slot="end" name="trash-outline"></ion-icon>
+    </ion-item>
+    <ion-item>
+        <ion-input type="text" label="Nome" [(ngModel)]="nome"> </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="number"label="Nota" [(ngModel)]="nota" min="0" max="10"> </ion-input>
+    </ion-item>
+    <ion-button (click)="cadastrarAlunos()">CADASTRAR</ion-button>
+  </ion-card>
 </ion-content>

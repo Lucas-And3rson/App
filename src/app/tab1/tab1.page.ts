@@ -7,8 +7,40 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
   esc:string = ""
-  constructor() {}
+  alunos = new Array<Aluno>()
+
+  constructor() {
+  }
+
   escolha(opcao:string){
     this.esc = opcao
   }
-}
+//ngFor]
+  nome:string = ""
+  nota:number = 0
+  cadastrarAlunos(){
+    this.alunos.push(new Aluno(this.nome, this.nota))
+  }
+  apagar(posicao: number){
+    this.alunos.splice(posicao, 1);
+  }
+  }
+
+  export class Aluno {
+    private nome: string;
+    private nota: number;
+
+    constructor(nome: string, nota: number){
+      this.nome = nome;
+      this.nota = nota;
+    }
+
+    public getNome() {
+      return this.nome;
+    }
+
+    public getNota() {
+      return this.nota;
+    }
+
+  }
