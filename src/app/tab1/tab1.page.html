@@ -1,63 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Lista Telefônica
+      Controle da conta
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-chip (click)="escolha('rock')" color="dark">
-    <ion-label>Rock</ion-label>
-  </ion-chip>
-  <ion-chip (click)="escolha('forro')" color="danger">
-    <ion-label>Forró</ion-label>
-  </ion-chip>
-  <ion-chip (click)="escolha('samba')" color="warning">
-    <ion-label>Samba</ion-label>
-  </ion-chip>
-  <ion-item *ngIf="esc === ''">
-    <ion-label>Escolha uma opção</ion-label>
-  </ion-item>
-  <ion-card *ngIf="esc === 'samba'">
-    <img src="https://th.bing.com/th/id/R.35e65dd9304a4380f36abd51f8575e90?rik=c3sykqAweqV63A&pid=ImgRaw&r=0" alt="imgSamba">
-    <ion-card-title>Samba</ion-card-title>
-    <ion-card-subtitle>História</ion-card-subtitle>
-    <ion-card-content>O samba é uma dança e um gênero musical brasileiro considerado um dos elementos mais representativos da cultura popular doBrasil.
-    </ion-card-content>
-  </ion-card>
-  <ion-card *ngIf="esc === 'forro'">
-    <img src="https://th.bing.com/th/id/R.ddac50525499686183a622c30224e9a4?rik=YRM0jZqz0QxLZw&pid=ImgRaw&r=0" alt="imgForro">
-    <ion-card-title>Forró</ion-card-title>
-    <ion-card-subtitle>História</ion-card-subtitle>
-    <ion-card-content>O forró é uma expressão artística genuinamente nordestina. Por ser uma forma de manifestação cultural ampla, o termo forró   tediversos significados e pode servir tanto para designar o ritmo musical, o estilo de dança e mesmo a festividade em que acontece.
-    </ion-card-content>
-  </ion-card>
-  <ion-card *ngIf="esc === 'rock'">
-    <img src="https://th.bing.com/th/id/R.7319d27c583bff5da859663b8c6dcb5e?rik=wbcjJvAzjhxQpA&pid=ImgRaw&r=0" alt="imgRock">
-    <ion-card-title>Rock</ion-card-title>
-    <ion-card-subtitle>História</ion-card-subtitle>
-    <ion-card-content>O Rock é uma vertente musical surgida do termo Rock and Roll. Originou-se nos Estados Unidos na segunda metade do século XX,alcançando seu auge nos anos 70 e 80.</ion-card-content>
-  </ion-card>
-
   <ion-card>
     <ion-item *ngIf="alunos.length === 0">
-    <ion-label>Não há alunos cadastrados!</ion-label>
+    <ion-label>Não há alunos!</ion-label>
     </ion-item>
     <ion-item *ngFor="let aluno of alunos, let i = index">
+      <ion-item-sliding>
+        <ion-item>
+          <ion-label>{{aluno.nome}}</ion-label>
+          <ion-badge>{{aluno.media}}</ion-badge>
+        </ion-item>
 
-      <ion-label>{{aluno.getNome()}}</ion-label>
-      <ion-badge *ngIf="aluno.getNota() >= 6">Nota: {{aluno.getNota()}}</ion-badge>
-      <ion-badge color="danger" *ngIf="aluno.getNota() < 6">Nota: {{aluno.getNota()}}</ion-badge>
-      <ion-icon (click)="apagar(i)" slot="end" name="trash-outline"></ion-icon>
+        <ion-item-options>
+          <ion-item-option (click)="apagarAluno(i)" color="danger"><ion-icon name="trash-outline"></ion-icon></ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
     </ion-item>
     <ion-item>
-        <ion-input type="text" label="Nome" [(ngModel)]="nome"> </ion-input>
+      <ion-input type="text"label="Nome:" [(ngModel)]="nome"> </ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="number"label="Nota" [(ngModel)]="nota" min="0" max="10"> </ion-input>
+      <ion-input type="number"label="Media:" [(ngModel)]="media" min="0"> </ion-input>
     </ion-item>
     <ion-button (click)="cadastrarAlunos()">CADASTRAR</ion-button>
-    <ion-button (click)="apagarTudo()">APAGAR TUDO</ion-button>
+    <ion-button (click)="apagarTodos()">APAGAR TUDO</ion-button>
   </ion-card>
 </ion-content>
