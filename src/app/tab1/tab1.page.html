@@ -1,35 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Controle da conta
-    </ion-title>
+  <ion-title>
+  Fotos
+  </ion-title>
   </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-item *ngIf="alunos.length === 0">
-    <ion-label>Não há alunos!</ion-label>
-    </ion-item>
-    <ion-item *ngFor="let aluno of alunos, let i = index">
-      <ion-item-sliding>
+  </ion-header>
+  <ion-content>
+    <ion-card>
+      <ion-card-header>
+      <ion-card-title>Última foto tirada</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
         <ion-item>
-          <ion-label>{{aluno.nome}}</ion-label>
-          <ion-badge>{{aluno.media}}</ion-badge>
+          <ion-label>{{dataHoje}}</ion-label>
         </ion-item>
-
-        <ion-item-options>
-          <ion-item-option (click)="apagarAluno(i)" color="danger"><ion-icon name="trash-outline"></ion-icon></ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
-    </ion-item>
-    <ion-item>
-      <ion-input type="text"label="Nome:" [(ngModel)]="nome"> </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input type="number"label="Media:" [(ngModel)]="media" min="0"> </ion-input>
-    </ion-item>
-    <ion-button (click)="cadastrarAlunos()">CADASTRAR</ion-button>
-    <ion-button color="danger" (click)="apagarTodos()">APAGAR TUDO</ion-button>
-  </ion-card>
-</ion-content>
+        <ion-item>
+          <ion-label>{{hora}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Local: ({{latitude}}:{{longitude}})</ion-label>
+        </ion-item>
+      </ion-card-content>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+        <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
+        <ion-img [src]="photo.webviewPath"></ion-img>
+        </ion-col>
+        </ion-row>
+        </ion-grid>
+        <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab-button (click)="addPhotoToGallery()">
+        <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+        </ion-fab>
+  </ion-content>
